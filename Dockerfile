@@ -1,12 +1,11 @@
 # step: build
 FROM node:8-alpine as builder
 
-# ARG TAG=v1.3.17
-ARG TAG=master
+ARG TAG=v1.3.20
 ARG REGISTRY=https://registry.npm.taobao.org
 
 RUN apk add --no-cache git python make \
-    && git clone --branch $TAG --depth 1 https://github.com/dongdongking008/yapi.git /app \
+    && git clone --branch $TAG --depth 1 https://github.com/YMFE/yapi.git /app \
     && cd /app \
     && npm install --no-optional --production --registry ${REGISTRY}
 
